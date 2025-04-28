@@ -1,0 +1,22 @@
+{
+  "name": "fineweb-n-grams",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+	"scripts": {
+		"start": "tsx index.ts"
+	},
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@duckdb/node-api": "^1.2.2-alpha.18",
+    "@huggingface/hub": "^1.1.2",
+    "@libsql/client": "^0.15.4",
+    "lmdb": "^3.2.6",
+    "tsx": "^4.19.3"
+  }
+}
