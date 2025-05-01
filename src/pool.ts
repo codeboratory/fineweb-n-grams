@@ -1,6 +1,6 @@
 import cluster, { Worker } from "cluster";
-import { Noop } from "./types.ts";
-import { Serializable } from "worker_threads";
+import type { Noop } from "./types.ts";
+import type { Serializable } from "worker_threads";
 
 type CreateWorkerPoolOptions<Input extends Serializable, Output> = {
 	count: number;

@@ -2,7 +2,7 @@ import { CHUNK_SIZE, REPOSITORY } from "./constants.ts";
 import { LanguageDB } from "./database/language.ts";
 import { MainDB } from "./database/main.ts";
 import { Huggingface } from "./huggingface.ts";
-import { Data } from "./types.ts";
+import type { Data } from "./types.ts";
 import { DuckDBInstance } from "@duckdb/node-api";
 
 const main_db = new MainDB();

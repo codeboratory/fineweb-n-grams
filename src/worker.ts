@@ -1,9 +1,11 @@
+import process from "node:process";
+
 export const workerProcess = async () => {
 	process.on("message", (data) => {
 		console.log("Data from main: ", data);
 	});
 
-	process.send(true);
+	process.send?.(true);
 
 	// console.log("THREAD Worker");
 	//
