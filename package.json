@@ -1,22 +1,27 @@
 {
   "name": "fineweb-n-grams",
   "module": "index.ts",
-  "type": "module",
-  "private": true,
-	"scripts": {
-		"start": "tsx index.ts"
-	},
-  "devDependencies": {
-    "@types/bun": "latest"
+  "dependencies": {
+    "@duckdb/node-api": "^1.2.2-alpha.18",
+    "@duckdb/node-bindings": "^1.2.2-alpha.18",
+    "@huggingface/hub": "^1.1.2",
+    "lmdb": "^3.2.6",
+    "node-addon-api": "^8.3.1",
+    "node-gyp": "^11.2.0",
+    "tsx": "^4.19.4"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
-  "dependencies": {
-    "@duckdb/node-api": "^1.2.2-alpha.18",
-    "@huggingface/hub": "^1.1.2",
-    "@libsql/client": "^0.15.4",
-    "lmdb": "^3.2.6",
-    "tsx": "^4.19.3"
+  "private": true,
+  "scripts": {
+    "start": "UV_THREADPOOL_SIZE=12 tsx src/index.ts",
+    "start:mac": "UV_THREADPOOL_SIZE=12 sudo nice -n 19 node index.js",
+    "start:linux": "UV_THREADPOOL_SIZE=12 nice -n 19 ionice -c 2 -n 0 taskset -c 0-11 node index.js",
+    "build": "bun build --packages external --format esm --outdir ./ --target node src/index.ts"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^22.15.3"
   }
 }
