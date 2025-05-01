@@ -83,7 +83,7 @@ export async function* createDataLoader() {
 
 					const count_reader = await count_query.streamAndReadAll();
 					const count_data = count_reader.getRows();
-					const row_count = Number(count_data[0][0]);
+					const row_count = Number(count_data?.[0]?.[0] ?? 0);
 
 					chunk_count = Math.ceil(row_count / CHUNK_SIZE);
 					chunks = new Array(chunk_count).fill(false);
@@ -105,8 +105,13 @@ export async function* createDataLoader() {
 					} satisfies Data;
 				}
 
+				// TODO: can't remove it here since after yielding
+				// the worker process will attempt to read from it
+				// - move to worker after insertChunk
 				await Huggingface.removeDataFile(directory, file);
 
+				// TODO: make it into a transaction
+				// - same as the removeDataFile above
 				await language_db.upsertOneFile(file, {
 					...matched_database_file.value,
 					downloaded: false

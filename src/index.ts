@@ -5,6 +5,6 @@ import { workerProcess } from "./worker.ts";
 if (cluster.isPrimary) {
 	await mainProcess();
 } else {
-	await workerProcess();
+	workerProcess();
 }
 
