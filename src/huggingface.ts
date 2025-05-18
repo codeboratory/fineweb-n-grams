@@ -1,4 +1,4 @@
-import { listFiles, downloadFile } from "@huggingface/hub";
+import { listFiles, downloadFile, type ListFileEntry } from "@huggingface/hub";
 import { createWriteStream } from "node:fs";
 import { mkdir, rm, stat } from "node:fs/promises";
 import { pipeline } from "node:stream/promises";
@@ -42,6 +42,35 @@ export class Huggingface {
 		return files;
 	}
 
+	static async getFilesRecursive(respository: string) {
+		const file_response = listFiles({
+			repo: respository,
+			path: "data",
+			accessToken: process.env.HUGGINGFACE_TOKEN,
+			recursive: true
+		});
+
+		const directories = new Map<string, string[]>();
+
+		for await (const file of file_response) {
+			const path = file.path.split("/");
+
+			if (file.type === "directory") {
+				directories.set(path[1]!, []);
+			}
+
+			if (file.type === "file") {
+				const files = directories.get(path[1]!) ?? [];
+
+				files.push(path[2]!);
+
+				directories.set(path[1]!, files)
+			}
+		}
+
+		return directories;
+	}
+
 	static async existsDataFile(directory: string, file: string) {
 		try {
 			await stat(`data/${directory}/${file}`);
@@ -63,7 +92,7 @@ export class Huggingface {
 		}
 
 		if (!download_response.body) {
-			throw new Error(`Cout not access body for a file ${directory}/${file}`);
+			throw new Error(`Could not access body for a file ${directory}/${file}`);
 		}
 
 		await mkdir(`./data/${directory}`, {

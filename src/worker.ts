@@ -6,6 +6,8 @@ import { CHUNK_SIZE } from "./constants";
 import { LanguageDB } from "./database/language";
 import { bigrams_map, computeGrams, trigrams_map, unigrams_map } from "./ngrams";
 import { getRandomSleepDuration, sleep } from "./utils";
+import { Huggingface } from "./huggingface";
+import { MainDB } from "./database/main";
 
 const text_decoder = new TextDecoder();
 
@@ -16,14 +18,19 @@ const read_query = await duck_connection.prepare(
 	"SELECT text FROM read_parquet($1) LIMIT $2 OFFSET $3;"
 );
 
-// // TODO: has to be mutable
-const language_db = new LanguageDB("eng");
+const main_db = new MainDB();
 
 export const workerProcess = () => {
-	process.on("message", async (data) => {
-		console.log("New job", data);
+	let language_db: LanguageDB;
+	let current_language: string;
 
+	process.on("message", async (data) => {
 		const input = data as Data;
+
+		if (current_language !== input.language) {
+			current_language = input.language;
+			language_db = new LanguageDB(input.language);
+		}
 
 		await sleep(getRandomSleepDuration());
 
@@ -57,16 +64,27 @@ export const workerProcess = () => {
 			}
 		}
 
-		// TODO: get info if the file is done and
-		// if it is then remove the file from /data
-		// and mark the file in database as done
-		// and check if directory is also done
-		// and check if language is also done
-		await language_db.insertOneChunk(input.directory, input.file, input.chunk, {
-			unigrams: unigrams_map,
-			bigrams: bigrams_map,
-			trigrams: trigrams_map
-		});
+		const {
+			is_file_done,
+			is_language_done
+		} = await language_db.insertOneChunk(
+			input.directory,
+			input.file,
+			input.chunk,
+			{
+				unigrams: unigrams_map,
+				bigrams: bigrams_map,
+				trigrams: trigrams_map
+			}
+		);
+
+		if (is_file_done) {
+			await Huggingface.removeDataFile(input.directory, input.file);
+		}
+
+		if (is_language_done) {
+			await main_db.upsertOneLanguage(current_language, true);
+		}
 
 		unigrams_map.clear();
 		bigrams_map.clear();

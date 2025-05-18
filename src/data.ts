@@ -104,18 +104,6 @@ export async function* createDataLoader() {
 						chunk: i,
 					} satisfies Data;
 				}
-
-				// TODO: can't remove it here since after yielding
-				// the worker process will attempt to read from it
-				// - move to worker after insertChunk
-				await Huggingface.removeDataFile(directory, file);
-
-				// TODO: make it into a transaction
-				// - same as the removeDataFile above
-				await language_db.upsertOneFile(file, {
-					...matched_database_file.value,
-					downloaded: false
-				});
 			}
 		}
 	}

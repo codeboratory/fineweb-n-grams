@@ -4,13 +4,13 @@
     "": {
       "name": "fineweb-n-grams",
       "dependencies": {
-        "@duckdb/node-api": "^1.2.2-alpha.18",
-        "@duckdb/node-bindings": "^1.2.2-alpha.18",
-        "@huggingface/hub": "^1.1.2",
-        "lmdb": "^3.2.6",
-        "node-addon-api": "^8.3.1",
-        "node-gyp": "^11.2.0",
-        "tsx": "^4.19.4",
+        "@duckdb/node-api": "1.2.2-alpha.19",
+        "@duckdb/node-bindings": "1.2.2-alpha.19",
+        "@huggingface/hub": "1.1.1",
+        "lmdb": "3.3.0",
+        "node-addon-api": "8.3.1",
+        "node-gyp": "11.2.0",
+        "tsx": "4.19.4",
       },
       "devDependencies": {
         "@types/node": "^22.15.3",
@@ -21,19 +21,19 @@
     },
   },
   "packages": {
-    "@duckdb/node-api": ["@duckdb/node-api@1.2.2-alpha.18", "", { "dependencies": { "@duckdb/node-bindings": "1.2.2-alpha.18" } }, "sha512-9ke/DF7ZZzj6pzlswF34DDytYUn8fhAe4JdZGEvXpNJxnccf1l1Aisqg0fUtOxZkYrO4ALgSZHR0i3i4RLndUQ=="],
+    "@duckdb/node-api": ["@duckdb/node-api@1.2.2-alpha.19", "", { "dependencies": { "@duckdb/node-bindings": "1.2.2-alpha.19" } }, "sha512-qH/PqK+Kp7TDZJU5SdS9+2jrYOJGHME4NcDsgrcbZk7fKTlXsDI8f8F0CnPxGCsBD35B+BEgphz9TTLoj1/vNA=="],
 
-    "@duckdb/node-bindings": ["@duckdb/node-bindings@1.2.2-alpha.18", "", { "optionalDependencies": { "@duckdb/node-bindings-darwin-arm64": "1.2.2-alpha.18", "@duckdb/node-bindings-darwin-x64": "1.2.2-alpha.18", "@duckdb/node-bindings-linux-arm64": "1.2.2-alpha.18", "@duckdb/node-bindings-linux-x64": "1.2.2-alpha.18", "@duckdb/node-bindings-win32-x64": "1.2.2-alpha.18" } }, "sha512-1O/yBDevwMNGlv559sn3myOds0lM0D4e8ilHsDzOs3rDnpzEdzK6aSTPVG8APjjFjPjk+pEzBxUse7UsP6objA=="],
+    "@duckdb/node-bindings": ["@duckdb/node-bindings@1.2.2-alpha.19", "", { "optionalDependencies": { "@duckdb/node-bindings-darwin-arm64": "1.2.2-alpha.19", "@duckdb/node-bindings-darwin-x64": "1.2.2-alpha.19", "@duckdb/node-bindings-linux-arm64": "1.2.2-alpha.19", "@duckdb/node-bindings-linux-x64": "1.2.2-alpha.19", "@duckdb/node-bindings-win32-x64": "1.2.2-alpha.19" } }, "sha512-EZpUPCPNJaQVmI3jWa/SIrs7lV9SJYS5a1bV3SRSQ6ZBJYFMrr2Mik2RjCVepA9cIwD2KIrXaWV7jiSVM29zJA=="],
 
-    "@duckdb/node-bindings-darwin-arm64": ["@duckdb/node-bindings-darwin-arm64@1.2.2-alpha.18", "", { "os": "darwin", "cpu": "arm64" }, "sha512-xNzfi/+swRiA1Rye25f33tKXmFYbyQcslN6bpB3nR/Wkiotjlu3dAc5wvTpUDiiJwNeZRTRdJM/OXtUO0YaAfw=="],
+    "@duckdb/node-bindings-darwin-arm64": ["@duckdb/node-bindings-darwin-arm64@1.2.2-alpha.19", "", { "os": "darwin", "cpu": "arm64" }, "sha512-r+MDv7XFxl4eCZEthmHWV2mxnczUFVc+w2cH0KzdTWmCgtjT3jpDhEulDekOG9SP9lFvfsTRTRgKatE2TTqu6w=="],
 
-    "@duckdb/node-bindings-darwin-x64": ["@duckdb/node-bindings-darwin-x64@1.2.2-alpha.18", "", { "os": "darwin", "cpu": "x64" }, "sha512-9vXgAJ2LFKRa53E7RmvGdhWtisLLPKIpSzeE/L3X4aD5zv1V4YnhYHuMOTgxZguj+eOT1pvG99geH1WQb3DdNQ=="],
+    "@duckdb/node-bindings-darwin-x64": ["@duckdb/node-bindings-darwin-x64@1.2.2-alpha.19", "", { "os": "darwin", "cpu": "x64" }, "sha512-WibHtKNQVDFr8AQumML9HLdgkYIRiC0B+MSrLvfojcrYmupoHB0Nwyn/T2UoTXNnTsn3NOrZECHUZGwRFmmF9g=="],
 
-    "@duckdb/node-bindings-linux-arm64": ["@duckdb/node-bindings-linux-arm64@1.2.2-alpha.18", "", { "os": "linux", "cpu": "arm64" }, "sha512-WcgfkPDGRsMcKAVzDhL14BJB1lYD9YY7wEIoPdyXYwkK+c4WT7ublsx7diFqBk/jO0jFYTRmXIqpNyqGT0Lwjg=="],
+    "@duckdb/node-bindings-linux-arm64": ["@duckdb/node-bindings-linux-arm64@1.2.2-alpha.19", "", { "os": "linux", "cpu": "arm64" }, "sha512-TfQ/k4YMAsDFpI5Y/nvA7yXs7KqzKsOZX4XzCyqWdfNPDQvheW+wRCxJVUE8kWqniMep62EkvbuX94yFtTZb8A=="],
 
-    "@duckdb/node-bindings-linux-x64": ["@duckdb/node-bindings-linux-x64@1.2.2-alpha.18", "", { "os": "linux", "cpu": "x64" }, "sha512-dPqVJwpu9SmKxuw7ZfebUzOLBMrZz24UzFXuHX0uwSXZS1ndUuHnqk7SWGcWafNJeDlMKV//uMQke+MGXt2LmQ=="],
+    "@duckdb/node-bindings-linux-x64": ["@duckdb/node-bindings-linux-x64@1.2.2-alpha.19", "", { "os": "linux", "cpu": "x64" }, "sha512-KDGD50H/sA/HWZFVuZhZTVZEKB3N8+ZPhHxxPs67p46WNm/fiQ6/FlaLasQ/gEmOY+I3bWcwjrba4h6LhFXnAQ=="],
 
-    "@duckdb/node-bindings-win32-x64": ["@duckdb/node-bindings-win32-x64@1.2.2-alpha.18", "", { "os": "win32", "cpu": "x64" }, "sha512-0BSRNH3JbvHDYd2LM/25uQlSaXzeJaJvBCJQZoIXttY5vq6stLknfQ9zWADLa8jwFYU+p87Ajqg415zs4SfMFQ=="],
+    "@duckdb/node-bindings-win32-x64": ["@duckdb/node-bindings-win32-x64@1.2.2-alpha.19", "", { "os": "win32", "cpu": "x64" }, "sha512-jsHu/tORVBfJ6QQ02c1vVKEJM6aVSNwwmFtd1G7n9HGjJeE1Wclewpfp3k7R7qU9vxtQtHoAMHeTVsnC2d3ymQ=="],
 
     "@esbuild/aix-ppc64": ["@esbuild/aix-ppc64@0.25.3", "", { "os": "aix", "cpu": "ppc64" }, "sha512-W8bFfPA8DowP8l//sxjJLSLkD8iEjMc7cBVyP+u4cEv9sM7mdUCkgsj+t0n/BWPFtv7WWCN5Yzj0N6FJNUUqBQ=="],
 
@@ -85,7 +85,7 @@
 
     "@esbuild/win32-x64": ["@esbuild/win32-x64@0.25.3", "", { "os": "win32", "cpu": "x64" }, "sha512-ICgUR+kPimx0vvRzf+N/7L7tVSQeE3BYY+NhHRHXS1kBuPO7z2+7ea2HbhDyZdTephgvNvKrlDDKUexuCVBVvg=="],
 
-    "@huggingface/hub": ["@huggingface/hub@1.1.2", "", { "dependencies": { "@huggingface/tasks": "^0.18.2" } }, "sha512-Jf4GhvVj9ABDw4Itb3BV1T7f22iewuZva476qTicQ4kOTbosuUuFDhsVH7ZH6rVNgg20Ll9kaNBF5CXjySIT+w=="],
+    "@huggingface/hub": ["@huggingface/hub@1.1.1", "", { "dependencies": { "@huggingface/tasks": "^0.18.1" } }, "sha512-kkoYt0AL4bx/AZZWVnr5j7JC5oXB0JVIrYOHk2drOolYZIC2PvB/en2D72PVgII/yecN88QY4dqMIiLTgFgSKg=="],
 
     "@huggingface/tasks": ["@huggingface/tasks@0.18.12", "", {}, "sha512-hUEYhXJzJCUhLSBNglW+Sji5fuzMnpBimp3kbdcGor+MaN9xb+qrcLnMC7X8aOcZaZdCErwYYIqz2oSP2EM4Bg=="],
 
@@ -93,17 +93,19 @@
 
     "@isaacs/fs-minipass": ["@isaacs/fs-minipass@4.0.1", "", { "dependencies": { "minipass": "^7.0.4" } }, "sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w=="],
 
-    "@lmdb/lmdb-darwin-arm64": ["@lmdb/lmdb-darwin-arm64@3.2.6", "", { "os": "darwin", "cpu": "arm64" }, "sha512-yF/ih9EJJZc72psFQbwnn8mExIWfTnzWJg+N02hnpXtDPETYLmQswIMBn7+V88lfCaFrMozJsUvcEQIkEPU0Gg=="],
+    "@lmdb/lmdb-darwin-arm64": ["@lmdb/lmdb-darwin-arm64@3.3.0", "", { "os": "darwin", "cpu": "arm64" }, "sha512-LipbQobyEfQtu8WixasaFUZZ+JCGlho4OWwWIQ5ol0rB1RKkcZvypu7sS1CBvofBGVAa3vbOh8IOGQMrbmL5dg=="],
 
-    "@lmdb/lmdb-darwin-x64": ["@lmdb/lmdb-darwin-x64@3.2.6", "", { "os": "darwin", "cpu": "x64" }, "sha512-5BbCumsFLbCi586Bb1lTWQFkekdQUw8/t8cy++Uq251cl3hbDIGEwD9HAwh8H6IS2F6QA9KdKmO136LmipRNkg=="],
+    "@lmdb/lmdb-darwin-x64": ["@lmdb/lmdb-darwin-x64@3.3.0", "", { "os": "darwin", "cpu": "x64" }, "sha512-yA+9P+ZeA3vg76BLXWeUomIAjxfmSmR2eg8fueHXDg5Xe1Xmkl9JCKuHXUhtJ+mMVcH12d5k4kJBLbyXTadfGQ=="],
 
-    "@lmdb/lmdb-linux-arm": ["@lmdb/lmdb-linux-arm@3.2.6", "", { "os": "linux", "cpu": "arm" }, "sha512-+6XgLpMb7HBoWxXj+bLbiiB4s0mRRcDPElnRS3LpWRzdYSe+gFk5MT/4RrVNqd2MESUDmb53NUXw1+BP69bjiQ=="],
+    "@lmdb/lmdb-linux-arm": ["@lmdb/lmdb-linux-arm@3.3.0", "", { "os": "linux", "cpu": "arm" }, "sha512-EDYrW9kle+8wI19JCj/PhRnGoCN9bked5cdOPdo1wdgH/HzjgoLPFTn9DHlZccgTEVhp3O+bpWXdN/rWySVvjw=="],
 
-    "@lmdb/lmdb-linux-arm64": ["@lmdb/lmdb-linux-arm64@3.2.6", "", { "os": "linux", "cpu": "arm64" }, "sha512-l5VmJamJ3nyMmeD1ANBQCQqy7do1ESaJQfKPSm2IG9/ADZryptTyCj8N6QaYgIWewqNUrcbdMkJajRQAt5Qjfg=="],
+    "@lmdb/lmdb-linux-arm64": ["@lmdb/lmdb-linux-arm64@3.3.0", "", { "os": "linux", "cpu": "arm64" }, "sha512-OeWvSgjXXZ/zmtLqqL78I3910F6UYpUubmsUU+iBHo6nTtjkpXms95rJtGrjkWQqwswKBD7xSMplbYC4LEsiPA=="],
 
-    "@lmdb/lmdb-linux-x64": ["@lmdb/lmdb-linux-x64@3.2.6", "", { "os": "linux", "cpu": "x64" }, "sha512-nDYT8qN9si5+onHYYaI4DiauDMx24OAiuZAUsEqrDy+ja/3EbpXPX/VAkMV8AEaQhy3xc4dRC+KcYIvOFefJ4Q=="],
+    "@lmdb/lmdb-linux-x64": ["@lmdb/lmdb-linux-x64@3.3.0", "", { "os": "linux", "cpu": "x64" }, "sha512-wDd02mt5ScX4+xd6g78zKBr6ojpgCJCTrllCAabjgap5FzuETqOqaQfKhO+tJuGWv/J5q+GIds6uY7rNFueOxg=="],
 
-    "@lmdb/lmdb-win32-x64": ["@lmdb/lmdb-win32-x64@3.2.6", "", { "os": "win32", "cpu": "x64" }, "sha512-XlqVtILonQnG+9fH2N3Aytria7P/1fwDgDhl29rde96uH2sLB8CHORIf2PfuLVzFQJ7Uqp8py9AYwr3ZUCFfWg=="],
+    "@lmdb/lmdb-win32-arm64": ["@lmdb/lmdb-win32-arm64@3.3.0", "", { "os": "win32", "cpu": "arm64" }, "sha512-COotWhHJgzXULLiEjOgWQwqig6PoA+6ji6W+sDl6M1HhMXWIymEVHGs0edsVSNtsNSCAWMxJgR3asv6FNX/2EA=="],
+
+    "@lmdb/lmdb-win32-x64": ["@lmdb/lmdb-win32-x64@3.3.0", "", { "os": "win32", "cpu": "x64" }, "sha512-kqUgQH+l8HDbkAapx+aoko7Ez4X4DqkIraOqY/k0QY5EN/iialVlFpBUXh4wFXzirdmEVjbIUMrceUh0Kh8LeA=="],
 
     "@msgpackr-extract/msgpackr-extract-darwin-arm64": ["@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3", "", { "os": "darwin", "cpu": "arm64" }, "sha512-QZHtlVgbAdy2zAqNA9Gu1UpIuI8Xvsd1v8ic6B2pZmeFnFcMWiPLfWXh7TVw4eGEZ/C9TH281KwhVoeQUKbyjw=="],
 
@@ -199,7 +201,7 @@
 
     "jsbn": ["jsbn@1.1.0", "", {}, "sha512-4bYVV3aAMtDTTu4+xsDYa6sy9GyJ69/amsu9sYF2zqjiEoZA5xJi3BrfX3uY+/IekIu7MwdObdbDWpoZdBv3/A=="],
 
-    "lmdb": ["lmdb@3.2.6", "", { "dependencies": { "msgpackr": "^1.11.2", "node-addon-api": "^6.1.0", "node-gyp-build-optional-packages": "5.2.2", "ordered-binary": "^1.5.3", "weak-lru-cache": "^1.2.2" }, "optionalDependencies": { "@lmdb/lmdb-darwin-arm64": "3.2.6", "@lmdb/lmdb-darwin-x64": "3.2.6", "@lmdb/lmdb-linux-arm": "3.2.6", "@lmdb/lmdb-linux-arm64": "3.2.6", "@lmdb/lmdb-linux-x64": "3.2.6", "@lmdb/lmdb-win32-x64": "3.2.6" }, "bin": { "download-lmdb-prebuilds": "bin/download-prebuilds.js" } }, "sha512-SuHqzPl7mYStna8WRotY8XX/EUZBjjv3QyKIByeCLFfC9uXT/OIHByEcA07PzbMfQAM0KYJtLgtpMRlIe5dErQ=="],
+    "lmdb": ["lmdb@3.3.0", "", { "dependencies": { "msgpackr": "^1.11.2", "node-addon-api": "^6.1.0", "node-gyp-build-optional-packages": "5.2.2", "ordered-binary": "^1.5.3", "weak-lru-cache": "^1.2.2" }, "optionalDependencies": { "@lmdb/lmdb-darwin-arm64": "3.3.0", "@lmdb/lmdb-darwin-x64": "3.3.0", "@lmdb/lmdb-linux-arm": "3.3.0", "@lmdb/lmdb-linux-arm64": "3.3.0", "@lmdb/lmdb-linux-x64": "3.3.0", "@lmdb/lmdb-win32-arm64": "3.3.0", "@lmdb/lmdb-win32-x64": "3.3.0" }, "bin": { "download-lmdb-prebuilds": "bin/download-prebuilds.js" } }, "sha512-MgJocUI6QEiSXQBFWLeyo1R7eQj8Rke5dlPxX0KFwli8/bsCxpM/KbXO5y0qmV/5llQ3wpneDWcTYxa+4vn8iQ=="],
 
     "lru-cache": ["lru-cache@10.4.3", "", {}, "sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ=="],
 

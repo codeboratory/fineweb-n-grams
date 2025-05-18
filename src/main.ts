@@ -6,25 +6,25 @@ import { Huggingface } from "./huggingface.ts";
 import { WorkerPool } from "./pool.ts";
 import type { Data } from "./types.ts";
 
+const main_db = new MainDB();
+
 export const mainProcess = async () => {
-	const main_db = new MainDB();
+	console.log("main.start");
 
-	const languages_from_huggingface = ["eng"];
+	const languages_from_database = await main_db.readManyLanguages();
 
-	for (const language of languages_from_huggingface) {
-		const language_db = new LanguageDB(language);
+	if (languages_from_database.length === 0) {
+		const languages_from_huggingface = ["eng"];
 
-		const directories_from_huggingface = await Huggingface.getDirectories(REPOSITORY);
+		for (const language of languages_from_huggingface) {
+			await main_db.upsertOneLanguage(language, false);
 
-		for (const directory of directories_from_huggingface) {
-			const files_from_huggingface = await Huggingface.getFiles(REPOSITORY, directory);
+			const language_db = new LanguageDB(language);
+			const directories_from_huggingface = await Huggingface.getFilesRecursive(REPOSITORY);
 
-
+			await language_db.upsertManyDirectoriesWithFiles(directories_from_huggingface);
 		}
 	}
-
-	// TODO: seed languages/directories/files
-	// before creating worker pool
 
 	const worker_pool = new WorkerPool<Data, void>({
 		count: WORKER_COUNT,
@@ -35,4 +35,6 @@ export const mainProcess = async () => {
 	});
 
 	await worker_pool.waitUntilCompleted();
+
+	console.log("main.done");
 };

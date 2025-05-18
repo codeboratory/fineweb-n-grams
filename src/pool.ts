@@ -25,16 +25,21 @@ export class WorkerPool<Input extends Serializable, Output> {
 				const next = await options.dataLoader.next();
 
 				if (next.value) {
+					console.log("worker.send", next.value);
 					worker.send(next.value);
 				}
 
 				if (next.done) {
-					this.#worker_resolves[i]();
+					console.log("worker.resolve");
+					this.#worker_resolves[i]!();
 				}
 			};
 
 			worker.once("message", async () => {
+				console.log("worker.init", i);
+
 				worker.on("message", async (data) => {
+					console.log("worker.message", data);
 					await options.onMessage(data);
 					await next();
 				});
