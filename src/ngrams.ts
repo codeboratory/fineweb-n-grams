@@ -12,8 +12,8 @@ export const computeGrams = (text: string) => {
 
 	for (const c3 of text) {
 		increment(unigrams_map, c3);
-		increment(bigrams_map, `${c2}${c3}`);
-		increment(trigrams_map, `${c1}${c2}${c3}`);
+		!!c2 && increment(bigrams_map, `${c2}${c3}`);
+		!!c1 && increment(trigrams_map, `${c1}${c2}${c3}`);
 
 		c1 = c2;
 		c2 = c3;
